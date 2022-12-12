@@ -16,6 +16,7 @@ data $1 $2 $3
 
 VM_Instance_Metadata(){
     # command to fetch instance metadata
+    curl -s -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/?api-version=2021-02-01" | jq
     curl -s -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/$1?api-version=2021-02-01" | jq
 }
 ### ./Metadata_VM.sh /network/interface/
